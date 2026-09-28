@@ -1,0 +1,19 @@
+ext {
+    // Android 15/16 primary target; minSdk 26 = Android 8+.
+    // targetSdk 35 per spec. Bump to 36 when Play requires it — nothing here
+    // depends on 36-specific behaviour.
+    minSdkVersion = 26
+    compileSdkVersion = 36
+    targetSdkVersion = 35
+    androidxActivityVersion = '1.11.0'
+    androidxAppCompatVersion = '1.7.1'
+    androidxCoordinatorLayoutVersion = '1.3.0'
+    androidxCoreVersion = '1.17.0'
+    androidxFragmentVersion = '1.8.9'
+    coreSplashScreenVersion = '1.2.0'
+    androidxWebkitVersion = '1.14.0'
+    junitVersion = '4.13.2'
+    androidxJunitVersion = '1.3.0'
+    androidxEspressoCoreVersion = '3.7.0'
+    cordovaAndroidVersion = '14.0.1'
+}

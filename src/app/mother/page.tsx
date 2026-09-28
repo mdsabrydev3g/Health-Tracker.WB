@@ -3,6 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Check, Clock } from "lucide-react";
 import { actOnDose } from "@/app/actions/dose";
+import { MotherReminders } from "@/components/MotherReminders";
 import { Button, Card } from "@/components/ui/primitives";
 import { buildBoard } from "@/server/board";
 import { getSession } from "@/lib/session";
@@ -104,6 +105,11 @@ export default async function MotherPage() {
           الطبيب أو النشرة الدوائية لمعرفة الإجراء المناسب.
         </p>
       ) : null}
+
+      {/* Schedules local alarms from the materialised doses, checks that exact
+          alarms are really granted, and reports alarm health (§9).
+          No-ops on the web. */}
+      <MotherReminders />
 
       {/* Hidden exit — requires the caregiver PIN (§4). */}
       <div className="mt-auto text-center">

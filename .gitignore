@@ -15,10 +15,17 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
-# Capacitor native projects are generated; keep android/ if you customise it.
-# android/app/build/
-# android/build/
-# android/.gradle/
+# Capacitor: keep the android/ SOURCE (we customise the manifest, SDK levels and
+# the AlarmHealth plugin) but ignore every build artefact.
+android/build/
+android/app/build/
+android/.gradle/
+android/.idea/
+android/local.properties
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/res/**/*.png
+!android/app/src/main/res/**/ic_launcher*.xml
 
 .tsbuildinfo
 next-env.d.ts

@@ -25,7 +25,10 @@ const serverUrl = process.env.CAPACITOR_SERVER_URL;
 const config: CapacitorConfig = {
   appId: "com.healthtracker.app",
   appName: "Health Tracker",
-  webDir: ".next/static",
+  // Minimal redirect shell. The app is server-backed (Neon), so the real UI
+  // lives on Vercel; this folder only satisfies Capacitor's webDir requirement
+  // and acts as a fallback if the remote URL is unreachable.
+  webDir: "capacitor-web",
   ...(serverUrl
     ? {
         server: {

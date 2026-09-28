@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AlertTriangle, Check, Clock, Moon } from "lucide-react";
 import { actOnDose } from "@/app/actions/dose";
+import { AlarmHealthBanner } from "@/components/AlarmHealthBanner";
 import { CaregiverNav } from "@/components/CaregiverNav";
 import { DoseStatusBadge } from "@/components/DoseStatus";
 import { Badge, Button, Card, EmptyState, SectionTitle, StatCard } from "@/components/ui/primitives";
@@ -70,6 +71,9 @@ export default async function TodayPage() {
           {board.personName} · {today}
         </p>
       </header>
+
+      {/* If the mother's phone cannot fire an alarm, say so — loudly (§1.7). */}
+      <AlarmHealthBanner />
 
       {board.alerts.length > 0 ? (
         <div className="mb-4 flex flex-col gap-2">
