@@ -1,0 +1,29 @@
+node_modules/
+.next/
+out/
+build/
+dist/
+
+.env
+.env.local
+.env*.local
+
+*.log
+npm-debug.log*
+yarn-error.log*
+
+.DS_Store
+Thumbs.db
+
+# Capacitor native projects are generated; keep android/ if you customise it.
+# android/app/build/
+# android/build/
+# android/.gradle/
+
+.tsbuildinfo
+next-env.d.ts
+
+# Local SQLite/backup dumps
+*.db
+*.sqlite
+backups/

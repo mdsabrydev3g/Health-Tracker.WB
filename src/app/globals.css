@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Arabic-first system stack — no network font fetch at build time. */
+  --font-app: "Noto Kufi Arabic", "Cairo", "Segoe UI", "Tahoma", "Arial",
+    system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Prevent iOS/Android zoom-on-focus for the elderly user's inputs. */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: var(--font-app);
+  }
+
+  /* Accessibility §14: every interactive target is at least 48×48 dp. */
+  button,
+  a[role="button"],
+  [role="button"] {
+    @apply min-h-touch min-w-touch;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-4 ring-brand-400 ring-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Mother Mode defaults to large text (§14). */
+  .text-mother {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+  }
+
+  .safe-top {
+    padding-top: max(env(safe-area-inset-top), 0rem);
+  }
+}
+
+/* Respect reduced motion (§14). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High-contrast dark theme — readability preserved (§14). */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
